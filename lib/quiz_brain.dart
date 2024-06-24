@@ -1,7 +1,9 @@
 import 'question.dart';
 
 class QuizBrain {
-  List<Question> questionBank = [
+  int _questionNumber = 0;
+
+  List<Question> _questionBank = [
     Question(
         'Humans discovered programming languages in the 1940s and have been decoding them ever since.',
         false),
@@ -46,4 +48,18 @@ class QuizBrain {
     Question(
         'Dictionaries will always have at least one key and value pair.', true)
   ];
+
+  String getQuestionText() {
+    return _questionBank[_questionNumber].questionText;
+  }
+
+  void nextQuestion() {
+    if (_questionNumber < _questionBank.length - 1) {
+      _questionNumber++;
+    }
+  }
+
+  bool getCorrectAnswer() {
+    return _questionBank[_questionNumber].questionAnswer;
+  }
 }
