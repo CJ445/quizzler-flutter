@@ -39,14 +39,6 @@ class QuizBrain {
     Question(
         'Like an if statement and a function call, the for Loop might cause the execution to not follow the sequential order of lines.',
         true),
-    Question(
-        'The statement count = count + 1 will cause an error because no number can be greater than itself.',
-        false),
-    Question(
-        'List comprehensions cannot express everything that a for loop can.',
-        true),
-    Question(
-        'Dictionaries will always have at least one key and value pair.', true)
   ];
 
   String getQuestionText() {
@@ -61,5 +53,21 @@ class QuizBrain {
 
   bool getCorrectAnswer() {
     return _questionBank[_questionNumber].questionAnswer;
+  }
+
+//TODO: Step 3 Part A - Create a method called isFinished() here that checks to see if we have reached the last question. It should return (have an output) true if we've reached the last question and it should return false if we're not there yet.
+  bool isFinished() {
+    if (_questionNumber >= _questionBank.length - 1) {
+      print("Now returning true");
+      return true;
+    } else {
+      return false;
+    }
+  }
+//TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
+
+//TODO: Step 4 Part B - Create a reset() method here that sets the questionNumber back to 0.
+  void reset() {
+    _questionNumber = 0;
   }
 }
